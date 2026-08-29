@@ -85,7 +85,10 @@ section{padding:6rem 5rem;position:relative}
 .skill-fill.purple{background:linear-gradient(90deg,var(--accent2),#c026d3)}
 .skill-fill.green{background:linear-gradient(90deg,var(--accent3),#10b981)}
 #projects{background:var(--bg2)}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem}
+.proj-card.featured{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;padding:2.5rem}
+.proj-featured-badge{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--accent3);letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(6,255,165,.3);padding:.25rem .7rem;display:inline-block;margin-bottom:1rem}
+@media(max-width:900px){.proj-card.featured{grid-template-columns:1fr}}
 .proj-card{background:var(--card);border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;opacity:0;transform:translateY(20px)}
 .proj-card.visible{opacity:1;transform:translateY(0)}
 .proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .4s}
@@ -142,6 +145,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mut
   section{padding:4rem 1.5rem}
   .skills-container,.edu-grid{grid-template-columns:1fr}
   .projects-grid{grid-template-columns:1fr}
+  .proj-card.featured{padding:1.5rem}
   .ach-grid{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:.5rem;text-align:center;padding:1.5rem}
 }
@@ -185,7 +189,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mut
     <div class="hero-typed-wrapper">
       <span id="typed-text"></span><span class="cursor-blink"></span>
     </div>
-    <p class="hero-desc">Nearly 4 years architecting scalable SaaS systems and multi-tenant web applications. Bridging backend engineering with machine learning to build the next generation of AI-powered tools.</p>
+    <p class="hero-desc">Nearly 4 years building scalable backend systems and end-to-end data pipelines. Builder of GridSight UK, a production-grade probabilistic forecasting platform for the National Grid &mdash; the top-marked project in an MSc Data Science cohort. Bridging full-stack engineering with applied ML to ship production-ready AI systems.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">&#128640; Let's Connect</a>
       <a href="#projects" class="btn-ghost">View My Work</a>
@@ -198,8 +202,8 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mut
       <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">30%</div>
-      <div class="stat-label">Perf. Improvement</div>
+      <div class="stat-num">&#8804;4%</div>
+      <div class="stat-label">nMAE &mdash; GridSight UK</div>
     </div>
     <div class="stat-card">
       <div class="stat-num">1st</div>
@@ -285,6 +289,9 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mut
       <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">TensorFlow &amp; PyTorch</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill green" data-w="75"></div></div></div>
       <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Scikit-learn &amp; NLTK</span><span class="skill-pct">82%</span></div><div class="skill-track"><div class="skill-fill green" data-w="82"></div></div></div>
       <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">PySpark</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill green" data-w="70"></div></div></div>
+      <div class="skill-group-title" style="margin-top:2rem">MLOps &amp; Data</div>
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">MLflow, DVC &amp; Evidently AI</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill green" data-w="78"></div></div></div>
+      <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">FastAPI &amp; DuckDB</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill green" data-w="80"></div></div></div>
       <div class="skill-group-title" style="margin-top:2rem">Cloud &amp; DevOps</div>
       <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">Docker &amp; Kubernetes</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill blue" data-w="88"></div></div></div>
       <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-name">AWS</span><span class="skill-pct">74%</span></div><div class="skill-track"><div class="skill-fill blue" data-w="74"></div></div></div>
@@ -302,26 +309,38 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mut
     <p class="s-sub">End-to-end systems built with precision &mdash; from ML pipelines to full-stack SaaS platforms.</p>
   </div>
   <div class="projects-grid">
+    <div class="proj-card featured">
+      <div>
+        <div class="proj-icon green" style="width:52px;height:52px;font-size:1.5rem">&#9728;&#65039;</div>
+      </div>
+      <div>
+        <div class="proj-featured-badge">&#9733; Top-Marked &middot; MSc Cohort</div>
+        <div class="proj-num">PROJECT / 001 &middot; SEP 2025 &mdash; PRESENT</div>
+        <div class="proj-name" style="font-size:1.3rem">GridSight UK &mdash; AI-Based Solar Energy Forecasting</div>
+        <p class="proj-desc">Production-grade probabilistic ML platform forecasting UK solar generation across 6h/12h/24h horizons for National Grid renewable planning. Bronze&rarr;Silver&rarr;Gold medallion data pipeline across PV_Live, NESO &amp; Open-Meteo sources. Three competing model families &mdash; LSTM-Q, a LightGBM-Q/TCN-Q stacking ensemble, and a LoRA-tuned Chronos-2 foundation model &mdash; hitting nMAE &le;4.0% and Skill Score &gt;0.30 at 24h. Deployed via multi-stage Docker Compose (FastAPI + React/Vite) with GitHub Actions CI/CD and weekly Champion-vs-Challenger retraining monitored by Evidently AI.</p>
+        <div class="t-tags"><span class="t-tag">Python</span><span class="t-tag">PyTorch</span><span class="t-tag">LightGBM</span><span class="t-tag">Hugging Face / LoRA</span><span class="t-tag">FastAPI</span><span class="t-tag">React</span><span class="t-tag">Docker</span><span class="t-tag">MLOps</span></div>
+      </div>
+    </div>
     <div class="proj-card">
-      <div class="proj-num">PROJECT / 001</div>
+      <div class="proj-num">PROJECT / 002 &middot; JUN &mdash; JUL 2026</div>
+      <div class="proj-icon purple">&#128218;</div>
+      <div class="proj-name">Automated RAG Pipeline &amp; Policy Data Platform</div>
+      <p class="proj-desc">ETL pipeline ingesting unstructured PDF reports via sliding-window chunking and batch embeddings into a persistent vector database, with an automated data quality suite enforcing strict JSON schemas and cross-model faithfulness checks.</p>
+      <div class="t-tags"><span class="t-tag">Python</span><span class="t-tag">Streamlit</span><span class="t-tag">Ollama</span><span class="t-tag">PyPDF</span></div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">PROJECT / 003</div>
       <div class="proj-icon blue">&#129504;</div>
       <div class="proj-name">Intelligent Candidate Ranking System</div>
       <p class="proj-desc">End-to-end ML pipeline with NLP feature extraction from resumes and LinkedIn profiles. Predictive Scikit-learn models with hybrid MySQL + MongoDB storage.</p>
       <div class="t-tags"><span class="t-tag">Python</span><span class="t-tag">NLTK</span><span class="t-tag">Django</span><span class="t-tag">Scikit-learn</span><span class="t-tag">MongoDB</span></div>
     </div>
     <div class="proj-card">
-      <div class="proj-num">PROJECT / 002</div>
-      <div class="proj-icon purple">&#9881;&#65039;</div>
+      <div class="proj-num">PROJECT / 004</div>
+      <div class="proj-icon green">&#9881;&#65039;</div>
       <div class="proj-name">Leave Approval &amp; Inventory Management</div>
       <p class="proj-desc">RBAC system managing hierarchical approval workflows with automated Spring Boot email notifications to streamline inter-department operations.</p>
       <div class="t-tags"><span class="t-tag">React.js</span><span class="t-tag">Spring Boot</span><span class="t-tag">MySQL</span></div>
-    </div>
-    <div class="proj-card">
-      <div class="proj-num">PROJECT / 003</div>
-      <div class="proj-icon green">&#9889;</div>
-      <div class="proj-name">Kandyan Energy Website &amp; Admin Panel</div>
-      <p class="proj-desc">Full-stack platform for solar panel inquiries and dynamic power plan generation. Achieved 100% on-time client delivery rate.</p>
-      <div class="t-tags"><span class="t-tag">ReactJS</span><span class="t-tag">NodeJS</span><span class="t-tag">MongoDB</span></div>
     </div>
   </div>
 </section>
@@ -374,7 +393,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mut
   <div class="reveal">
     <div class="s-label" style="justify-content:center">07 &middot; Contact</div>
     <h2 class="contact-title">Ready to <span>Build</span><br>Something Great?</h2>
-    <p class="contact-sub">Open to full-stack and backend engineering roles. Based in Hatfield, UK &mdash; available for remote and hybrid opportunities worldwide.</p>
+    <p class="contact-sub">Open to software engineering, data engineering, and data science roles. Based in London, UK &mdash; available for remote and hybrid opportunities worldwide.</p>
     <div class="contact-links">
       <a href="mailto:deshanc321@gmail.com" class="c-link">&#9993; deshanc321@gmail.com</a>
       <a href="https://linkedin.com/in/deshanc321" class="c-link" target="_blank">in LinkedIn</a>
@@ -385,7 +404,7 @@ footer p{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--mut
 </section>
 
 <footer>
-  <p>&#169; 2026 <span class="f-accent">Deshan Chathuranga</span> &middot; Hatfield, United Kingdom</p>
+  <p>&#169; 2026 <span class="f-accent">Deshan Chathuranga</span> &middot; London, United Kingdom</p>
   <p>Built with precision &middot; Full-Stack Software Engineer</p>
 </footer>
 
@@ -405,7 +424,7 @@ for(let i=0;i<30;i++){
   pc.appendChild(p);
 }
 
-const phrases=['Full-Stack Software Engineer','Java & Spring Boot Expert','SaaS Platform Architect','ML & AI Enthusiast','Cloud & DevOps Engineer'];
+const phrases=['Full-Stack Software Engineer','Java & Spring Boot Expert','MSc Data Science (Distinction)','Probabilistic ML Forecasting','Cloud & DevOps Engineer'];
 let pi=0,ci=0,del=false;
 const el=document.getElementById('typed-text');
 function type(){
